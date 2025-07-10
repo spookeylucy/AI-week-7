@@ -1,0 +1,45 @@
+## Source of Bias
+
+The primary source of bias in Amazon's AI recruiting tool was **biased training data**. The system was trained on resumes submitted to Amazon over a 10-year period, during which the tech industry (and Amazon specifically) had significant gender imbalances, with men vastly outnumbering women in technical roles. This historical data taught the AI that male candidates were the "ideal" pattern to match.
+
+Specifically, the bias manifested because:
+- The training dataset contained predominantly male resumes for technical positions
+- The model learned to associate male-coded language and experiences with "successful" candidates
+- Words commonly found on women's resumes (like "women's" in "women's chess club captain") were downgraded
+- The system essentially learned to replicate historical hiring patterns that reflected systemic discrimination
+
+## Three Fixes for Fairness
+
+### 1. Data Preprocessing and Augmentation
+- **Remove gendered language**: Strip out explicitly gendered terms, pronouns, and gender-indicating information from resumes during training and evaluation
+- **Synthetic data generation**: Create balanced datasets by generating additional examples for underrepresented groups while maintaining realistic professional qualifications
+- **Historical bias correction**: Weight training data to counteract historical imbalances, giving equal representation to qualified candidates regardless of gender
+
+### 2. Algorithmic Debiasing Techniques
+- **Adversarial debiasing**: Train the model with an adversarial network that penalizes the main model when it makes decisions that correlate with protected attributes
+- **Fairness constraints**: Implement mathematical constraints during training that require equal opportunity rates across gender groups
+- **Feature auditing**: Regularly analyze which features the model weights most heavily and remove or adjust those that serve as proxies for gender
+
+### 3. Human-in-the-Loop Oversight
+- **Diverse evaluation panels**: Require human reviewers from diverse backgrounds to validate AI recommendations before final decisions
+- **Structured blind review**: Implement processes where initial AI screening removes identifying information, followed by human evaluation focused on skills and qualifications
+- **Regular bias audits**: Conduct quarterly reviews of hiring outcomes by demographic groups to catch emerging bias patterns
+
+## Fairness Evaluation Metrics
+
+### Statistical Parity Metrics
+- **Demographic parity**: Measure whether the selection rate is equal across gender groups (e.g., 50% of qualified male applicants and 50% of qualified female applicants advance)
+- **Equalized odds**: Ensure both true positive rates (correctly identifying qualified candidates) and false positive rates are equal across groups
+- **Calibration**: Verify that confidence scores mean the same thing across groups (e.g., a 70% confidence score should indicate the same likelihood of success for all genders)
+
+### Outcome-Based Metrics
+- **Hiring rate by gender**: Track the percentage of applicants hired from each gender group over time
+- **Performance correlation**: Monitor whether candidates recommended by the AI perform equally well in their roles regardless of gender
+- **Retention rates**: Measure whether employees hired through the AI system have similar retention rates across demographic groups
+
+### Process Metrics
+- **Feature importance analysis**: Regularly audit which resume features most influence decisions and flag potential proxy variables
+- **Intersectional analysis**: Examine outcomes for candidates at intersections of multiple identities (e.g., women of color, older women)
+- **Feedback loop monitoring**: Track whether human reviewers consistently override AI recommendations for certain demographic groups, which could indicate persistent bias
+
+These metrics should be monitored continuously, with regular reporting to ensure the system maintains fairness over time as new data is incorporated and the model evolves.
