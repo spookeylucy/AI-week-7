@@ -41,3 +41,48 @@ Amazon's AI recruiting tool exhibited significant gender bias, systematically do
 
 ---
 *This analysis provides a framework for identifying and addressing bias in AI hiring systems.*
+# COMPAS Recidivism Bias Audit using AIF360
+
+## 📌 Project Overview
+This project performs a fairness audit on the COMPAS Recidivism Dataset using IBM's **AI Fairness 360 (AIF360)** toolkit. The goal is to identify and mitigate racial bias in predictive risk scores, specifically between African-American and Caucasian individuals.
+
+## 📁 Files Included
+- `COMPAS_Audit_AIF360.ipynb` — Jupyter notebook with full bias analysis, metrics, and visualization.
+- `COMPAS_Bias_Audit_Report.docx` — A 300-word summary report of findings and mitigation strategies.
+- `COMPAS_Bias_Audit_Report.pdf` — (Optional) PDF version of the report.
+- `README.md` — This guide.
+
+## 📊 Dataset
+- **Source**: ProPublica COMPAS Risk Scores  
+- **Link**: [https://www.propublica.org/datastore/dataset/compas-recidivism-risk-score-data-and-analysis](https://www.propublica.org/datastore/dataset/compas-recidivism-risk-score-data-and-analysis)
+- **Protected Attribute**: Race (`African-American` vs `Caucasian`)
+
+## ⚙️ Tools Used
+- Python 3
+- AIF360 (IBM)
+- Scikit-learn
+- Matplotlib
+- Jupyter Notebook
+
+## 🧪 Steps Performed
+1. Load and preprocess the COMPAS dataset using `CompasDataset`.
+2. Compute baseline fairness metrics.
+3. Apply **Reweighing** as a pre-processing bias mitigation technique.
+4. Train a logistic regression model.
+5. Evaluate fairness and accuracy metrics on test data.
+6. Visualize disparities in outcomes like false positive rates.
+
+## 📈 Key Findings
+- African-American defendants have higher false positive rates.
+- Reweighing reduces disparities while maintaining accuracy.
+
+## ▶️ How to Run
+1. Install dependencies:
+    ```bash
+    pip install aif360 scikit-learn matplotlib
+    ```
+2. Open `COMPAS_Audit_AIF360.ipynb` in Jupyter Notebook or Google Colab.
+3. Run the cells step by step to see metrics and visualization.
+
+## 📬 Contact
+For questions or collaboration, reach out to the author or instructor.
